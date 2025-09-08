@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="joblyMentorship.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentorship Hub | Jobly</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">Jobly</a>
+    <div class="nav-content">
+      <span>Mentorship Hub for Job Seekers 💡</span>
+      <a href="../Dashboard/dashboard.html">← Back to Home</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="section links">
+      <h2>Explore Mentorship Programs</h2>
+      <p>Connect with experienced professionals who can guide you in your career journey.</p>
+      <ul>
+        <li><a href="https://www.thementorshipboardroom.com/" target="_blank" rel="noopener noreferrer">The Mentorship Boardroom</a></li>
+        <li><a href="https://www.careerspring.org" target="_blank" rel="noopener noreferrer">Career Spring</a></li>
+        <li><a href="https://www.linkedin.com/mentoring/" target="_blank" rel="noopener noreferrer">LinkedIn Mentorship</a></li>
+        <li><a href="https://www.youthmentoring.org" target="_blank" rel="noopener noreferrer">Youth Mentoring Hub</a></li>
+        <li><a href="https://www.score.org/find-mentor" target="_blank" rel="noopener noreferrer">SCORE Business Mentorship</a></li>
+        <li><a href="https://mentoring.org/program-resources/" target="_blank" rel="noopener noreferrer">National Mentoring Resources</a></li>
+        <li><a href="https://www.findamentor.com" target="_blank" rel="noopener noreferrer">FindAMentor.com</a></li>
+        <li><a href="https://www.mentorsouthafrica.org" target="_blank" rel="noopener noreferrer">Mentor South Africa</a></li>
+      </ul>
+    </div>
+
+    <div class="section motivation">
+      <h2>Daily Motivation</h2>
+      <div class="motivation-quote" id="quote">
+        "Believe in yourself. You are capable of achieving great things."
+      </div>
+      <button class="btn" onclick="changeQuote()">Get New Inspiration</button>
+    </div>
+
+    <div class="section videos">
+      <h2>Mentor Video Clips</h2>
+      <p>Watch these inspiring videos to learn from successful professionals.</p>
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/ZXsQAXx_ao0" title="Motivational Speech - Why You Should Never Give Up" allowfullscreen></iframe>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/wnHW6o8WMas" title="Mentor Speech: Believe In Yourself" allowfullscreen></iframe>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/l-gQLqv9f4o" title="The Power of Mentorship - TED Talk" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mentorship-section">
+    <h3>Meet Our Free Mentors</h3>
+    <p>Find guidance, support, and inspiration from our dedicated mentors ready to help you succeed.</p>
+    <button class="btn" onclick="showMentors()">See Available Mentors</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Jobly Mentorship Hub. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const quotes = [
+      "Every setback is a setup for a comeback.",
+      "Your current situation is not your final destination.",
+      "Success is not for the chosen few, but for the few who choose it.",
+      "Stay persistent, stay positive, stay hungry for success.",
+      "One step at a time, one day at a time.",
+      "Opportunities don't happen. You create them.",
+      "Push yourself, because no one else is going to do it for you.",
+      "The harder you work for something, the greater you'll feel when you achieve it.",
+      "Don't watch the clock; do what it does. Keep going.",
+      "Your dream doesn't have an expiration date. Take a deep breath and try again.",
+      "Winners are not afraid of losing, but losers are.",
+      "Failure is simply the opportunity to begin again, this time more intelligently.",
+      "Doubt kills more dreams than failure ever will.",
+      "It always seems impossible until it's done.",
+      "You don't have to be great to start, but you have to start to be great.",
+      "Success is the sum of small efforts repeated day in and day out.",
+      "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "Your only limit is you.",
+      "Small steps in the right direction can turn out to be the biggest step of your life.",
+      "Difficult roads often lead to beautiful destinations."
+    ];
+    
+    function changeQuote() {
+      const q = document.getElementById('quote');
+      let newQ;
+      do {
+        newQ = quotes[Math.floor(Math.random() * quotes.length)];
+      } while (newQ === q.textContent);
+      q.textContent = newQ;
+      
+      // Add animation effect
+      q.style.opacity = 0;
+      setTimeout(() => {
+        q.style.transition = 'opacity 0.5s ease-in-out';
+        q.style.opacity = 1;
+      }, 10);
+    }
+    
+    function showMentors() {
+      const mentors = [
+        { name: "Abigail", role: "Career Mentor", specialty: "IT & Tech Industry" },
+        { name: "Hangwani", role: "Startup Mentor", specialty: "Entrepreneurship" },
+        { name: "Felicia", role: "Leadership Coach", specialty: "Management Skills" },
+        { name: "Hlayisani", role: "Academic Advisor", specialty: "Education Pathways" },
+        { name: "Thando", role: "Creative Industries Mentor", specialty: "Design & Media" }
+      ];
+      
+      let message = "Available Mentors:\n\n";
+      mentors.forEach(mentor => {
+        message += `• ${mentor.name} - ${mentor.role}\n   Specializes in: ${mentor.specialty}\n\n`;
+      });
+      
+      alert(message);
+    }
+    
+    // Change quote every 30 seconds
+    setInterval(changeQuote, 30000);
+  </script>
+</body>
+</html>

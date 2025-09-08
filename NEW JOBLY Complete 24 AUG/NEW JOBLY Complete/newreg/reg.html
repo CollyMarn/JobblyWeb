@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jobly Registration</title>
+  <link rel="stylesheet" href="style.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+ 
+
+<body>
+<header>
+    <nav class="navbar">
+      <div class="brand">
+        <img src="https://via.placeholder.com/40x40?text=J" alt="Jobly Logo" />
+        <span class="logo-text">Jobly</span>
+      </div>
+
+      <button class="burger" onclick="toggleMenu()">☰</button>
+
+      <ul class="nav-links" id="navMenu">
+        <li><a href="/JOBBLY_WEB/newlandingpage/newland.html">Home</a></li>
+        <li><a href="/JOBBLY_WEB/AboutUs.html">About Us</a></li>
+        <li><a href="/newlog/login.html">Login</a></li>
+        
+       
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="registration-form" id="regist">
+      <form id="registerForm" method="post" action="">
+
+        <h2>Jobly Registration</h2>
+        
+
+        <!-- Personal Information -->
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label for="fname">First Name:</label>
+          <input type="text" id="fname" name="fname" required>
+
+          <label for="lname">Last Name:</label>
+          <input type="text" id="lname" name="lname" required>
+
+          <label for="marital-status">Marital Status:</label>
+          <select id="marital-status" name="marital-status" required>
+            <option disabled selected>--Please select--</option>
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+            <option value="widow/er">Widow/er</option>
+          </select>
+
+          <label for="date-of-birth">Date of Birth:</label>
+          <input type="date" id="date-of-birth" name="date-of-birth" min="1990-01-01" required>
+
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" required>
+            <option disabled selected>--Please select--</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+
+          <label for="phone-number">Phone Number:</label>
+          <input type="tel" id="phone-number" name="phone-number" required>
+        </fieldset>
+
+        <!-- Account Details -->
+        <fieldset>
+          <legend>Account Details</legend>
+
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="confirm-email">Confirm Email:</label>
+          <input type="email" id="confirm-email" name="confirm-email" required>
+
+          <label for="pwd">Password:</label>
+          <input type="password" id="pwd" name="pwd" required>
+
+          <label for="confirm-pwd">Confirm Password:</label>
+          <input type="password" id="confirm-pwd" name="confirm-pwd" required>
+        </fieldset>
+
+        <!-- Career Preferences -->
+        <fieldset>
+          <legend>Employment & Career Preferences</legend>
+
+          <label for="education-level">Highest Education Level:</label>
+          <select id="education-level" name="education-level" required>
+            <option disabled selected>--Please select--</option>
+            <option value="matric">Matric</option>
+            <option value="diploma">Diploma</option>
+            <option value="degree">Degree</option>
+            <option value="honors">Honors</option>
+            <option value="masters">Masters</option>
+            <option value="phd">PhD</option>
+          </select>
+
+          <label for="employment-status">Employment Status:</label>
+          <select id="employment-status" name="employment-status" required>
+            <option disabled selected>--Please select--</option>
+            <option value="unemployed">Unemployed</option>
+            <option value="student">Student</option>
+            <option value="employed">Employed</option>
+          </select>
+
+          <label for="reason-for-joining">Why are you registering?</label><br>
+          <input type="checkbox" id="skills-development" name="reason" value="skills-development">
+          <label for="skills-development">Skills Development</label>
+
+          <input type="checkbox" id="job" name="reason" value="job">
+          <label for="job">Find a Job</label>
+
+          <input type="checkbox" id="both" name="reason" value="both">
+          <label for="both">Both</label>
+        </fieldset>
+
+        <!-- Location Preference -->
+        <fieldset>
+          <legend>Location</legend>
+          <label for="province">Province:</label>
+          <select id="province" name="province" required>
+            <option disabled selected>--Please select--</option>
+            <option value="eastern-cape">Eastern Cape</option>
+            <option value="free-state">Free State</option>
+            <option value="western-cape">Gauteng</option>
+            <option value="western-cape">KwaZulu-Natal</option>
+            <option value="western-cape">Limpopo</option>
+            <option value="western-cape">Mpumalanga</option>
+            <option value="western-cape">North West</option>
+            <option value="northern-cape">Northern Cape</option>
+            <option value="western-cape">Western Cape</option>
+          </select>
+        </fieldset>
+
+        <!-- Disability Section -->
+        <fieldset>
+          <legend>Disability Information</legend>
+          <p>This information will be kept confidential.</p>
+
+          <label for="disability-status">Do you have a disability?</label>
+          <input type="checkbox" id="disability-status" name="disability-status" onchange="toggleDisabilityTypes()">
+
+          <div id="disability-types" style="display: none;">
+            <label for="types-of-disabilities">Type of Disability:</label>
+            <select id="types-of-disabilities" name="types-of-disabilities">
+              <option disabled selected>--Please select--</option>
+              <option value="adhd">ADHD</option>
+              <option value="blind">Partial Vision Loss</option>
+              <option value="deaf">Partial Hearing Loss/Deaf(Non-severe)</option>
+              <option value="cerebral-palsy">Speech Impairment</option>
+              <option value="dyslexic">Dyslexic</option>
+               <option value="dyslexic">Chronic Illness(e.g Diabetes, Asthma)</option>
+              <option value="other">Other</option>
+            </select>
+
+            <label for="remarks">If other, please specify:</label>
+            <input type="text" id="remarks" name="remarks" placeholder="Comment">
+          </div>
+        </fieldset>
+
+        <!-- Submit -->
+        <button type="submit">Register</button>
+         <p>Already registered? <a href="/newlog/login.html">Login here</a></p>
+      </form>
+    </div>
+
+
+  <script src="reg.js"></script>
+ 
+</body>
+</html>

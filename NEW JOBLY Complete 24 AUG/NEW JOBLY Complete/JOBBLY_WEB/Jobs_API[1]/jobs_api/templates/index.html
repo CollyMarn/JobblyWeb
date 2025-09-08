@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>South African Jobs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .job { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Jobs in South Africa</h1>
+    <input type="text" id="keyword" placeholder="Filter by keyword (e.g., developer)">
+    <button onclick="fetchJobs()">Search</button>
+    <div id="jobs"></div>
+
+    <script>
+        async function fetchJobs() {
+    const keyword = document.getElementById('keyword').value;
+    const url = keyword 
+        ? `http://localhost:5000/jobs?keyword=${encodeURIComponent(keyword)}` 
+        : 'http://localhost:5000/jobs';
+
+    try {
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+            // Get the error details from the API
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(
+                errorData.error || `API returned ${response.status}: ${response.statusText}`
+            );
+        }
+        
+        const jobs = await response.json();
+        
+        if (jobs.length === 0) {
+            document.getElementById('jobs').innerHTML = "<p>No jobs found. Try another keyword.</p>";
+        } else {
+            displayJobs(jobs);
+        }
+    } catch (error) {
+        console.error("Fetch error:", error);
+        document.getElementById('jobs').innerHTML = `
+            <p style="color: red;">Error: ${error.message}</p>
+        `;
+    }
+}
+
+  function displayJobs(jobs) {
+      const container = document.getElementById('jobs');
+      container.innerHTML = jobs.map(job => `
+          <div class="job">
+              <h3>${job.title || 'No title'}</h3>
+              <p>Company: ${job.company || 'N/A'}</p>
+              <p>Location: ${job.location || 'N/A'}</p>
+              ${job.salary_min ? `<p>Salary: R${job.salary_min}</p>` : ''}
+              <a href="${job.url || '#'}" target="_blank">View Job</a>
+          </div>
+      `).join('');
+  }
+        // Load jobs when page opens
+        fetchJobs();
+    </script>
+</body>
+</html>

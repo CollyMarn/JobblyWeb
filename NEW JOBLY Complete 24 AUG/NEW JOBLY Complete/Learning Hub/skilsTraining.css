@@ -1,0 +1,233 @@
+:root {
+      --primary: #18b153;
+      --secondary: #37e680;
+      --accent: #31ce3e;
+      --accent-hover: #2980b9;
+      --text-main: #2c3e50;
+      --text-secondary: #7f8c8d;
+      --section-bg: #ecf0f1;
+      --card-bg: #fff;
+      --border: #bdc3c7;
+      --light-bg: #f9f9f9;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--light-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+    header {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      padding: 40px 0 30px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      letter-spacing: 1px;
+    }
+    header h1 {
+      margin: 0 0 10px 0;
+      font-size: 2.6rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    header p {
+      margin: 0;
+      color: #ecf0f1;
+      font-size: 1.2rem;
+    }
+    .top-bar {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      margin-top: 0;
+    }
+    .category-bar {
+      width: 220px;
+      background: var(--section-bg);
+      padding: 20px 10px;
+      border-right: 1px solid var(--border);
+      min-height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .main-content {
+      flex: 1;
+      padding: 30px;
+      max-width: 1200px;
+      min-height: 100vh;
+    }
+    .search-bar {
+      margin-bottom: 25px;
+      width: 70%;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: white;
+      color: var(--text-main);
+      outline: none;
+      transition: border 0.2s;
+    }
+    #searchInput:focus {
+      border: 1.5px solid var(--accent);
+    }
+    .section {
+      margin: 30px 0;
+      background: var(--section-bg);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .section h2 {
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 8px;
+    }
+    .resource-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .resource-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      width: 300px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+      color: var(--text-main);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .resource-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border-color: var(--accent);
+    }
+    .resource-card img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      background: #f1f1f1;
+      height: 146px;
+      object-fit: cover;
+    }
+    .resource-card h3 {
+      margin: 0 0 7px 0;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+    .resource-card p {
+      color: var(--text-secondary);
+      font-size: 0.97rem;
+      min-height: 48px;
+    }
+    .resource-card button, .resource-card a {
+      margin-top: 8px;
+      padding: 8px 16px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      display: inline-block;
+      transition: background 0.2s;
+      margin-right: 8px;
+    }
+    .resource-card button:hover, .resource-card a:hover {
+      background: var(--accent-hover);
+    }
+    .category-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: left;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: background 0.2s;
+    }
+    .category-btn:not(.active) {
+      background: var(--secondary);
+      color: white;
+    }
+    .category-btn.active, .category-btn:hover {
+      background: var(--accent-hover);
+    }
+    .faq-section {
+      background: var(--section-bg);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 30px;
+      border: 1px solid var(--border);
+    }
+    .faq-section h2 {
+      color: var(--primary);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 8px;
+    }
+    .faq-question {
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+      color: var(--primary);
+      padding: 8px;
+      background: rgba(52, 152, 219, 0.1);
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .faq-question:hover {
+      background: rgba(52, 152, 219, 0.2);
+    }
+    .faq-answer {
+      display: none;
+      margin-top: 5px;
+      color: var(--text-secondary);
+      padding: 10px;
+      background: white;
+      border-radius: 4px;
+      margin-top: 8px;
+      border-left: 3px solid var(--accent);
+    }
+    @media (max-width: 900px) {
+      .top-bar {
+        flex-direction: column;
+      }
+      .category-bar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        flex-direction: row;
+        flex-wrap: wrap;
+        min-height: unset;
+      }
+      .main-content {
+        padding: 20px;
+        max-width: 100vw;
+      }
+      .resource-card {
+        width: 100%;
+      }
+    }

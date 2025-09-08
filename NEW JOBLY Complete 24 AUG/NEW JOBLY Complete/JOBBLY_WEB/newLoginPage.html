@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="newLoginPage.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Jobly</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">Jobly</div>
+    <p class="tagline">Find your dream job today</p>
+    <h2>Welcome Back</h2>
+    
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Username or Email</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" id="loginButton">
+        Login
+      </button>
+    </form>
+    
+    <p id="message" aria-live="polite"></p>
+    
+    <div class="links">
+      <p class="register-link">Don't have an account? <a href="user_registration.html">Sign up</a></p>
+      <p class="forgot-password"><a href="forgot-password.html">Forgot your password?</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const message = document.getElementById("message");
+      
+      // Simple client-side validation
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+      
+         if (username === "felicia" && password === "1234") {
+        localStorage.setItem("loggedInUser", username);
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById("login-error").textContent = "Invalid credentials.";
+      }
+      
+      // In a real app, you would make a fetch request to your backend here
+      message.textContent = "Login functionality will connect to your backend";
+      message.className = "success";
+      
+      // Simulate a successful login redirect (remove in production)
+      // setTimeout(() => {
+      //   window.location.href = "dashboard.html";
+      // }, 1500);
+    });
+  </script>
+</body>
+</html>

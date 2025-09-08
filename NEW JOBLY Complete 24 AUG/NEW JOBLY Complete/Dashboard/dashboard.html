@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Jobly Dashboard</title>
+        <link rel="stylesheet" href="dashboard.css" />
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="container">
+                <button
+                    id="nav-toggle"
+                    class="nav-toggle"
+                    aria-label="Toggle navigation menu"
+                    aria-controls="mobile-menu"
+                    aria-expanded="false"
+                >
+                    <span class="hamburger"></span>
+                </button>
+                <h1 class="logo">Jobly</h1>
+
+                <!-- Mobile dropdown nav (hidden until toggle clicked) -->
+                <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
+                    <ul>
+                        <li><a href="../Profile/Profile/Profile.html">Profile</a></li>
+                        <li><a href="../CV Builder/cv_builder.html">CV Builder</a></li>
+                        <li><a href="../Learning Hub/SkillsTraining.html">Learning Hub</a></li>
+                        <li><a href="../Job listing/Jobs.html">Jobs</a></li>
+                        <li><a href="../CV Templates/cv_templates.html">CV Templates</a></li>
+                        <li><a href="../Interview Tips/Interview_tips.html">Interview Tips</a></li>
+                        <li><a href="../Mentorship/JOBLYmentorship.html">Mentorship</a></li>
+                        <li><a href="#logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <!-- Desktop sidebar (always visible ≥768px) -->
+            <aside id="sidebar" class="sidebar">
+                <nav class="sidebar-nav" aria-label="Main sidebar navigation">
+                    <ul>
+                        <li><a href="../Profile/Profile/Profile.html">Profile</a></li>
+                        <li><a href="../CV Builder/cv_builder.html">CV Builder</a></li>
+                        <li><a href="../Learning Hub/SkillsTraining.html">Learning Hub</a></li>
+                        <li><a href="../Job listing/Jobs.html">Jobs</a></li>
+                        <li><a href="../CV Templates/cv_templates.html">CV Templates</a></li>
+                        <li><a href="../Interview Tips/Interview_tips.html">Interview Tips</a></li>
+                        <li><a href="../Mentorship/JOBLYmentorship.html">Mentorship</a></li>
+                        <li><a href="#logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="main-panel">
+                <section class="overview">
+                    <figure class="profile-card">
+                        <img src="" alt="Collen profile picture" class="profile-picture" />
+                        <figcaption class="profile-info">
+                            <h2 class="user-name">Collen Vhukhudo</h2>
+                            <p class="user-role">Job Seeker</p>
+                        </figcaption>
+                    </figure>
+
+                    <section class="notifications">
+                        <h2>Notifications</h2>
+                        <ul>
+                            <li>Welcome back! You have 3 new messages.</li>
+                            <li>Please upload your profile picture to complete your profile.</li>
+                            <li>Your CV is 80% complete—finish it to stand out!</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section class="progress-section">
+                    <h2>Profile Completion</h2>
+                    <div class="progress-bar">
+                        <div class="fill" style="width: 60%;"></div>
+                    </div>
+                    <p>You’re 60% done. Upload a picture and add your skills to reach 100%.</p>
+                </section>
+
+                <section class="progress-section">
+                    <h2>CV Progress</h2>
+                    <progress max="100" value="80">80%</progress>
+                    <p>Your CV is 80% complete. Add education and experience details.</p>
+                </section>
+
+                <section class="activities">
+                    <h2>Recent Activity</h2>
+                    <ul>
+                        <li>Applied to “Frontend Developer” at TechCorp</li>
+                        <li>Viewed 12 new job postings</li>
+                        <li>Saved “UX Designer” for later</li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+
+        <script src="dashboard.js"></script>
+        
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ChatBot</title>
+        <link rel="stylesheet" href="chatbot.css" />
+    </head>
+    <body class="logged-in"> <!-- Add/remove this dynamically based on login -->
+
+    
+        <!-- Chatbot Toggle Icon -->
+        
+        <div id="chatbot-icon">💬</div>
+
+        <!-- Chatbot Container -->
+        <div id="chatbot-container" class="hidden">
+            <div id="chatbot-header">
+            <span> JoblyBot</span>
+            <button id="close-btn">&times;</button>
+            </div>
+
+            <div id="chatbot-body">
+            <div id="chatbot-messages"></div>
+            </div>
+
+            <div id="chatbot-input-container">
+            <input type="text" id="chatbot-input" placeholder="Type a message..." />
+            <button id="send-btn">Send</button>
+            <button id="clear-btn">Clear</button>
+            </div>
+        </div>
+
+    <script src="chatbot.js" defer></script>
+    </body>
+</html>
+
+</body>
+</html>

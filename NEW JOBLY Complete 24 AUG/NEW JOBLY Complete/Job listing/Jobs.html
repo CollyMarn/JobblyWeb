@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Categories</title>
+  <!--link rel="stylesheet" href="landingpage_style.css"-->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+    }
+    .filters {
+      background: #fff;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      max-width: 800px;
+    }
+    .filter-group {
+      margin-bottom: 15px;
+    }
+    .filter-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .filter-group select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    .filter-button {
+      background-color: #90ee90;
+      color: #333;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .filter-button:hover {
+      background-color: #7ecf7e;
+    }
+    .category {
+      background: #fff;
+      margin: 10px 0;
+      border-radius: 10px;
+      padding: 10px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .category button {
+      background-color: #90ee90; 
+      color: #333;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      outline: none;
+      font-weight: bold;
+    }
+    .category button:hover {
+      background-color: #7ecf7e; 
+    }
+    .content {
+      padding: 10px 15px;
+      display: none;
+      background-color: #f1f1f1;
+      border-radius: 0 0 10px 10px;
+    }
+    .content ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    .content a {
+      text-decoration: none;
+      color: #006600;
+    }
+    .content a:hover {
+      text-decoration: underline;
+    }
+    .no-jobs {
+      color: #666;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Explore Job Categories</h1>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label for="department">Filter by Department:</label>
+      <select id="department">
+        <option value="all">All Departments</option>
+        <option value="Building and Construction">Building and Construction</option>
+        <option value="Technology">Technology</option>
+        <option value="Accounting and Finance">Accounting and Finance</option>
+        <option value="Public Relations and Communications">Public Relations and Communications</option>
+        <option value="Business Management">Business Management</option>
+        <option value="Education">Education</option>
+        <option value="Health">Health</option>
+        <option value="Tourism">Tourism</option>
+        <option value="Transportation and Logistics">Transportation and Logistics</option>
+        <option value="Engineering">Engineering</option>
+	<option value="Creativity and Media">Creativity and Media</option>
+	<option value="Defense and Security">Defense and Security</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="location">Filter by Location:</label>
+      <select id="location">
+        <option value="all">All Locations</option>
+        <option value="Johannesburg">Johannesburg</option>
+        <option value="Cape Town">Cape Town</option>
+        <option value="Durban">Durban</option>
+        <option value="Remote">Remote</option>
+        <option value="Pretoria">Pretoria</option>
+        <option value="Port Elizabeth">Port Elizabeth</option>
+        <option value="Bloemfontein">Bloemfontein</option>
+        <option value="Pietermaritzburg">Pietermaritzburg</option>
+        <option value="East London">East London</option>
+        <option value="Pretoria">Pretoria</option>
+      </select>
+    </div>
+    <button class="filter-button" onclick="filterJobs()">Apply Filters</button>
+    <button class="filter-button" onclick="resetFilters()">Reset Filters</button>
+  </div>
+
+  <div class="category" data-department="Building and Construction">
+    <button onclick="toggleContent(this)">Building and Construction</button>
+    <div class="content"><ul><li><a href="#">Jobs Coming Soon....</a></li></ul></div>
+  </div>
+
+  <div class="category" data-department="Technology">
+    <button onclick="toggleContent(this)">Technology</button>
+    <div class="content"><ul><li><a href="#">Jobs Coming Soon...</a></li></ul></div>
+  </div>
+
+  <div class="category" data-department="Accounting and Finance">
+    <button onclick="toggleContent(this)">Accounting and Finance</button>
+    <div class="content"><ul><li><a href="#">Jobs Coming Soon...</a></li></ul></div>
+  </div>
+
+  <div class="category" data-department="Public Relations and Communications">
+    <button onclick="toggleContent(this)">Public Relations and Communications</button>
+    <div class="content"><ul><li><a href="#">Jobs Coming Soon...</a></li></ul></div>
+  </div>
+
+  <div class="category" data-department="Business Management">
+    <button onclick="toggleContent(this)">Business Management</button>
+    <div class="content"><ul><li><a href="#">Jobs Coming Soon...</a></li></ul></div>
+  </div>
+
+  <div class="category" data-department="Education">
+    <button onclick="toggleContent(this)">Education</button>
+    <div class="content">
+      <ul>
+        <li><a href="#">Basic Education</a></li>
+        <li><a href="#">Higher Education and Training</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="category" data-department="Health">
+    <button onclick="toggleContent(this)">Health</button>
+    <div class="content"><ul><li><a href="#">Jobs Coming Soon</a></li></ul></div>
+  </div>
+
+  <div class="category" data-department="Tourism">
+    <button onclick="toggleContent(this)">Tourism</button>
+    <div class="content"><ul><li><a href="#">Jobs Coming Soon</a></li></ul></div>
+  </div>
+
+  <div class="category" data-department="Transportation and Logistics">
+    <button onclick="toggleContent(this)">Transportation and Logistics</button>
+    <div class="content"><ul><li><a href="#">Jobs Coming Soon</a></li></ul></div>
+  </div>
+
+  <div class="category" data-department="Engineering">
+    <button onclick="toggleContent(this)">Engineering</button>
+    <div class="content"><ul><li><a href="#">Jobs Coming Soon</a></li></ul></div>
+  </div>
+
+  <div class="category" data-department="Creativity and Media">
+    <button onclick="toggleContent(this)">Creativity and Media</button>
+    <div class="content"><ul><li><a href="#">Jobs Coming Soon</a></li></ul></div>
+  </div>
+
+  <div class="category" data-department="Defense and Security">
+    <button onclick="toggleContent(this)">Defense and Security</button>
+    <div class="content"><ul><li><a href="#">Jobs Coming Soon</a></li></ul></div>
+  </div>
+
+  <script>
+    function toggleContent(button) {
+      var content = button.nextElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+
+    function filterJobs() {
+      const departmentFilter = document.getElementById('department').value;
+      const locationFilter = document.getElementById('location').value.toLowerCase();
+      
+      const categories = document.querySelectorAll('.category');
+      
+      categories.forEach(category => {
+        const categoryDept = category.getAttribute('data-department');
+        
+        // Show all categories if "All Departments" is selected, or only the selected one
+        if (departmentFilter === 'all' || categoryDept === departmentFilter) {
+          category.style.display = 'block';
+        } else {
+          category.style.display = 'none';
+        }
+      });
+    }
+
+    function resetFilters() {
+      document.getElementById('department').value = 'all';
+      document.getElementById('location').value = 'all';
+      filterJobs();
+      
+      // Close all expanded categories
+      document.querySelectorAll('.content').forEach(content => {
+        content.style.display = 'none';
+      });
+    }
+
+    // Initialize with all categories visible
+    document.addEventListener('DOMContentLoaded', function() {
+      filterJobs();
+    });
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+        <title>JOBLY User Registration page</title>
+        <link rel="stylesheet" href="user_registration.css"/>
+    </head>
+
+    <body>
+        <header>
+            <h1 id="jobly-registration">Jobly Registration</h1>
+        </header>
+
+        <main>
+            <div class="registration-form">
+                <form method="post" action="">
+                    <section id="personal-info">
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" name="fname" required ><br><br>
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" name="lname" required><br><br>
+                        <label for="marital-status">Marital Status:</label>
+                        <select id="marital-status">
+                            <option disabled selected>--Please select--</option>
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="divorced">Divorced</option>
+                            <option value="widow/er">Widow/er</option>
+                        </select><br><br>
+                        <label for="date-of-birth">Date of Birth:</label>
+                        <input type="date" id="date-of-birth" name="date-of-birth" min="1990-01-01" required><br><br>
+
+                        <label for="gender">Gender:</label>
+                        <select id="gender">
+                            <option value="" disabled selected>--Please select--</option>
+                            <option value="female">Female</option>
+                            <option value="Male">Male</option>
+                        </select><br><br>
+                        
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="example@gmail.com" size="20"><br><br>
+                        <label for="phone-number">Phone Number:</label>
+                        <input type="tel" id="phone-number" name="phone-number" required><br><br>
+                    </section>
+                
+
+                    <section id="account-credentials">
+                        <label for="pwd">Password:</label>
+                        <input type="password" id="pwd" name="pwd" required><br><br>
+                        <label for="confirm-pwd">Confirm Password:</label>
+                        <input type="password" id="confirm-pwd" name="confirm-pwd" required><br><br>
+                    </section>
+
+                    <section id="emplyment&career-preferences">
+                        <label for="education-level">Highest Education Level:</label>
+                        <select id="education-level" name="education-level" required>
+                            <option disabled selected>--Please select--</option>
+                            <option value="matric">Matric</option>
+                            <option value="diploma">Diploma</option>
+                            <option value="degree">Degree</option>
+                            <option value="honors">Honors</option>
+                            <option value="masters">Masters</option>
+                            <option value="phd">PhD</option>
+                        </select><br><br>
+
+                        <label for="employment-status">Employment Status:</label>
+                        <select id="employment-status" name="employment-status" required>
+                            <option value="" disabled selected>--Please select--</option>
+                            <option value="unemployed">Unemployed</option>
+                            <option value="student">Student</option>
+                            <option value="employed">Employed</option>
+                        </select><br><br>
+
+                        <label for="reason-for-joining">Why are you registering?</label><br><br>
+                        <label for="skills-development">Skills Development</label>
+                        <input type="checkbox" id="skills-development" name="skills-development" value="skills-development">
+                        <label for="job">Find a Job</label>
+                        <input type="checkbox" id="job" name="job" value="job">
+                        <label for="both">Both</label>
+                        <input  type="checkbox" id="both" name="both" value="both">
+                        <br><br>
+                    </section>
+
+                    <section id="location">
+                        <label>Please select a province you would like to work in:</label><br><br>
+                        <label for="province">Province:</label>
+                        <select id="province" name="province" required>
+                            <option value="" disabled selected>--Please select--</option>
+                            <option value="eastern-cape">Eastern Cape</option>
+                            <option value="free-cape">Free State</option>
+                            <option value="gauteng">Gauteng</option>
+                            <option value="kwazulu-natal">Kwazulu Natal</option>
+                            <option value="limpopo">Limpopo</option>
+                            <option value="mpumalanga">Mpumalanga</option>
+                            <option value="north-west">North West</option>
+                            <option value="northern-cape">Northern Cape</option>
+                            <option value="western-cape">Western Cape</option>
+                        </select>
+                    </section>
+
+                    <!--<section id="disabilitiy">
+                        <p>Please tick the box below if you have any mental and/or physical disabilities. 
+                        <br>This information will be kept confidential by Jobly</p>
+
+                        <label>Do you have a disability or impairment?</label>
+
+                        <input 
+                        type="checkbox" 
+                        id="disabilitiy-status" 
+                        name="disabilitiy-status" 
+                        onchange="disabilityTypes()"
+                        >
+
+                        <div id="disabilitiy-types">
+
+                            <label for="types-of-disabilities">Disability Type: </label>
+
+                            <select id="types-of-disabilities">
+                                <option disabled selected>--Please select--</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </section>
+                    <script src="user_registration.js"></script> -->
+                    <section id="disability">
+                        <p>Please tick the box below if you have any mental and/or physical disabilities. <br>
+                            This information will be kept confidential by Jobly
+                        </p>
+
+                        <label for="disability-status">Do you have a disability or impairment?</label>
+                        <input 
+                            type="checkbox" 
+                            id="disability-status" 
+                            name="disability-status" 
+                            onchange="toggleDisabilityTypes()"
+                        >
+
+                        <div id="disability-types" style="display: none; margin-top: 1em;">
+                            <label for="types-of-disabilities">Type of Disability:</label>
+                            <select id="types-of-disabilities" name="types-of-disabilities" required>
+                                <option disabled selected>--Please select--</option>
+                                <option value="adhd">ADHD</option>
+                                <option value="blind">BLIND</option>
+                                <option value="cerebral-palsy">CEREBRAL PALSY</option>
+                                <option value="deaf">DEAF</option>
+                                <option value="dyscalculia">DYSCALCULIA</option>
+                                <option value="dyslexic/reading-disorder">DYSLEXIC/REDING DISORDER</option>
+                                <option value="epilepsy">EPILEPSY</option>
+                                <option value="hearing-impaired">HEARING IMPAIRED</option>
+                                <option value="impaired-mobility">IMPAIRED MOBILITY</option>
+                                <option value="neurological">NEUROLOGICAL</option>
+                                <option value="paraplegic">PARAPLEGIC</option>
+                                <option value="psychiatric">PSYCHIATRIC</option>
+                                <option value="psychological">PSYCHOLOGICAL</option>
+                                <option value="quadriplegic">QUADRIPLEGIC</option>
+                                <option value="writing-disorder">WRITING DISORDER</option>
+                                <option value="other">OTHER</option>
+                            </select><br><br>
+
+                            <label for="remarks">If other, please specify</label>
+                            <input type="text" id="remarks" name="remarks" placeholder="Comment" size="50" style="height: 80px;">
+                        </div><br><br>
+                    </section>
+
+                    <button type="submit" class="register">Register</button>
+
+                    <script>
+                        function toggleDisabilityTypes() {
+                            var checkbox = document.getElementById("disability-status");
+                            var container = document.getElementById("disability-types");
+                            if (checkbox.checked) {
+                                container.style.display = "block";
+                            } 
+                            else {
+                                container.style.display = "none";
+                            }
+                        }
+                    </script>
+
+                </form>
+            </div>
+            
+            
+        </main>
+        
+    </body>
+</html>

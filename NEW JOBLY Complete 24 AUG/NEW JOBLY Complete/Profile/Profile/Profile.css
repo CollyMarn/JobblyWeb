@@ -1,0 +1,227 @@
+:root {
+            --primary-green: #2e7d32;
+            --dark-green: #32cd32;
+            --light-green: #e8f5e9;
+            --accent-green: #689f38;
+            --background: #f5f9f5;
+            --border: #e0e9e0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--background);
+            margin: 0;
+            padding: 20px;
+        }
+        
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 80, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            position: relative;
+        }
+        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin-right: 30px;
+            object-fit: cover;
+        }
+        
+        .profile-info h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .profile-info h2 {
+            margin: 5px 0 0;
+            font-size: 20px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        .privacy-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .employer-notice {
+            background-color: var(--light-green);
+            padding: 15px 30px;
+            border-bottom: 1px solid #c8e6c9;
+            color: var(black);
+        }
+        
+        .employer-notice h3 {
+            margin-top: 0;
+            color: var(--primary-green);
+        }
+        
+        section {
+            padding: 25px 30px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        section h2 {
+            color: var(--primary-green);
+            margin-top: 0;
+            font-size: 22px;
+            border-bottom: 2px solid var(--light-green);
+            padding-bottom: 8px;
+        }
+        
+        .experience, .education {
+            margin-bottom: 20px;
+        }
+        
+        .experience-header, .education-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .experience-title, .education-title {
+            font-weight: 600;
+            color: var(black);
+        }
+        
+        .experience-date, .education-date {
+            color: var(--accent-green);
+            font-weight: 500;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .skill {
+            background: var(--light-green);
+            color: var(--primary-green);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .highlight-skill {
+            background: var(--primary-green);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .contact-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+            padding: 20px 30px;
+            background: var(--background);
+        }
+        
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .primary-btn {
+            background: var(--primary-green);
+            color: white;
+        }
+        
+        .primary-btn:hover {
+            background: var(--dark-green);
+        }
+        
+        .secondary-btn {
+            background: white;
+            color: var(--primary-green);
+            border: 1px solid var(--primary-green);
+        }
+        
+        .secondary-btn:hover {
+            background: var(--light-green);
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .profile-pic {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .privacy-badge {
+                position: static;
+                margin-top: 15px;
+            }
+            
+            .contact-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+        }

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jobly CV Builder - Create Your Professional Resume</title>
+  <link rel="stylesheet" href="cv_builder.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Jobly CV Builder</h1>
+    <p>Create a professional resume in minutes - Free and easy to use</p>
+  </div>
+  
+  <div class="container">
+    <div class="form-container">
+      <div class="form-box">
+        <h2>Personal Information</h2>
+        <form id="cvForm">
+          <div class="form-group">
+            <label for="fullName" class="required">Full Name</label>
+            <input type="text" id="fullName" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="profession">Profession</label>
+            <input type="text" id="profession" placeholder="e.g. Software Developer">
+          </div>
+          
+          <div class="form-group">
+            <label for="address" class="required">Address</label>
+            <textarea id="address" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone" class="required">Phone Number</label>
+            <input type="tel" id="phone" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="required">Email</label>
+            <input type="email" id="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="linkedin">LinkedIn Profile</label>
+            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+          </div>
+          
+          <h2>Professional Details</h2>
+          
+          <div class="form-group">
+            <label for="objective" class="required">Professional Summary</label>
+            <textarea id="objective" required placeholder="Briefly describe your professional background and career goals"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="education" class="required">Education</label>
+            <textarea id="education" required placeholder="Example:&#10;BSc Computer Science - University of Cape Town (2020-2023)&#10;Matric - Johannesburg High School (2015-2019)"></textarea>
+            <small>Enter each qualification on a new line</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="experience" class="required">Work Experience</label>
+            <textarea id="experience" required placeholder="Example:&#10;Junior Developer - Tech Solutions SA (2023-Present)&#10;- Developed web applications&#10;- Collaborated with team members&#10;&#10;Intern - Digital Innovations (2022)&#10;- Assisted with coding tasks&#10;- Participated in team meetings"></textarea>
+            <small>Include company name, your position, dates, and bullet points for responsibilities</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="skills" class="required">Skills</label>
+            <textarea id="skills" required placeholder="Example: JavaScript, Python, Teamwork, Communication"></textarea>
+            <small>Separate skills with commas</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="languages">Languages</label>
+            <textarea id="languages" placeholder="Example: English (Fluent), Zulu (Conversational)"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="references">References</label>
+            <textarea id="references" placeholder="Example:&#10;Mr. Smith - Manager at Tech Solutions - 071 234 5678&#10;Dr. Johnson - Professor at UCT - johson@uct.ac.za"></textarea>
+            <small>Include name, position, company, and contact details</small>
+          </div>
+          
+          <div class="btn-group">
+            <button type="submit" class="btn btn-block">Generate CV</button>
+            <button type="reset" class="btn btn-outline btn-block">Reset Form</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <div class="preview-container">
+      <div class="preview-box">
+        <h2>CV Preview</h2>
+        <div class="cv-preview" id="cvPreview">
+          <p style="text-align: center; color: var(--dark-gray);">Your CV will appear here after you fill out the form</p>
+        </div>
+        
+        <div class="btn-group" id="actionButtons" style="display: none;">
+          <button onclick="window.print()" class="btn btn-block">Print CV</button>
+          <button onclick="downloadCV()" class="btn btn-outline btn-block">Download as PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('cvForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const fullName = document.getElementById('fullName').value;
+      const profession = document.getElementById('profession').value;
+      const address = document.getElementById('address').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const linkedin = document.getElementById('linkedin').value;
+      const objective = document.getElementById('objective').value;
+      const education = document.getElementById('education').value.split('\n').filter(line => line.trim() !== '');
+      const experience = document.getElementById('experience').value.split('\n\n').filter(section => section.trim() !== '');
+      const skills = document.getElementById('skills').value.split(',').map(skill => skill.trim()).filter(Boolean);
+      const languages = document.getElementById('languages').value.split(',').map(lang => lang.trim()).filter(Boolean);
+      const references = document.getElementById('references').value.split('\n').filter(line => line.trim() !== '');
+      
+      // Generate CV HTML
+      let cvHtml = `
+        <div class="cv-header">
+          <h1 class="cv-name">${fullName}</h1>
+          ${profession ? `<p><strong>${profession}</strong></p>` : ''}
+          <p class="cv-contact">${address.replace(/\n/g, '<br>')}</p>
+          <p class="cv-contact">${phone} | ${email} ${linkedin ? `| <a href="${linkedin}" target="_blank">LinkedIn</a>` : ''}</p>
+        </div>
+        
+        <div class="cv-section">
+          <h3 class="cv-section-title">Professional Summary</h3>
+          <p>${objective}</p>
+        </div>
+      `;
+      
+      // Education
+      if (education.length > 0) {
+        cvHtml += `
+          <div class="cv-section">
+            <h3 class="cv-section-title">Education</h3>
+            ${education.map(edu => `<div class="cv-item"><p>${edu}</p></div>`).join('')}
+          </div>
+        `;
+      }
+      
+      // Work Experience
+      if (experience.length > 0) {
+        cvHtml += `
+          <div class="cv-section">
+            <h3 class="cv-section-title">Work Experience</h3>
+            ${experience.map(exp => {
+              const lines = exp.split('\n');
+              const title = lines[0];
+              const bullets = lines.slice(1);
+              return `
+                <div class="cv-item">
+                  <p class="cv-item-title">${title}</p>
+                  <ul>
+                    ${bullets.map(bullet => `<li>${bullet.replace(/^- /, '')}</li>`).join('')}
+                  </ul>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      }
+      
+      // Skills
+      if (skills.length > 0) {
+        cvHtml += `
+          <div class="cv-section">
+            <h3 class="cv-section-title">Skills</h3>
+            <div class="cv-skills">
+              ${skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+            </div>
+          </div>
+        `;
+      }
+      
+      // Languages
+      if (languages.length > 0) {
+        cvHtml += `
+          <div class="cv-section">
+            <h3 class="cv-section-title">Languages</h3>
+            <ul>
+              ${languages.map(lang => `<li>${lang}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+      }
+      
+      // References
+      if (references.length > 0) {
+        cvHtml += `
+          <div class="cv-section">
+            <h3 class="cv-section-title">References</h3>
+            ${references.map(ref => `<div class="cv-item"><p>${ref}</p></div>`).join('')}
+          </div>
+        `;
+      } else {
+        cvHtml += `
+          <div class="cv-section">
+            <h3 class="cv-section-title">References</h3>
+            <p>Available upon request</p>
+          </div>
+        `;
+      }
+      
+      // Display CV
+      document.getElementById('cvPreview').innerHTML = cvHtml;
+      document.getElementById('actionButtons').style.display = 'flex';
+      
+      // Scroll to preview
+      document.querySelector('.preview-container').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    function downloadCV() {
+      alert("In a full implementation, this would generate and download a PDF of your CV.\nFor now, please use the Print function and select 'Save as PDF' as your printer.");
+    }
+  </script>
+</body>
+</html>
